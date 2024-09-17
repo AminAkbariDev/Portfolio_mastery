@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Contact
+
+@{
 	ViewData["Title"] = "ارتباط با من";
 }
 
@@ -54,21 +56,21 @@
 </section>
 <section class="contact-section px-3 py-5 p-md-5">
 	<div class="container">
-		<form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="#">
+		<form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" asp-action="ContactMe">
 			<h3 class="text-center mb-3">در دسترس باشید!</h3>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label class="sr-only" for="cname">نام</label>
-					<input type="text" class="form-control" id="cname" name="name" placeholder="نام"
-						   minlength="2" required="" aria-required="true">
+					<label class="sr-only" asp-for="Name">نام</label>
+					<input type="text" class="form-control" placeholder="نام" asp-for="Name">
+					<span asp-validation-for="Name" class="text-danger mt-1"></span>
 				</div>
 				<div class="form-group col-md-6">
-					<label class="sr-only" for="cemail">ایمیل</label>
-					<input type="email" class="form-control" id="cemail" name="email" placeholder="ایمیل"
-						   required="" aria-required="true">
+					<label class="sr-only" asp-for="Email">ایمیل</label>
+					<input type="email" class="form-control" asp-for="Email" placeholder="ایمیل">
+					<span asp-validation-for="Email" class="text-danger mt-1"></span>
 				</div>
 				<div class="form-group col-12">
-					<select id="services" class="custom-select" name="services">
+					<select id="service" class="custom-select" name="service">
 						<option selected>سرویس مورد نظر خود را انتخاب کنید...</option>
 						<option value="basic">نقره ای</option>
 						<option value="standard">طلایی</option>

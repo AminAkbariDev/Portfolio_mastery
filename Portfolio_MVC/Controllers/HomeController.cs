@@ -19,7 +19,15 @@ namespace Portfolio_MVC.Controllers
 
         public IActionResult ContactMe()
         {
-            return View();
+            var model = new Contact();
+            return View(model);
+        }
+
+        [HttpPost]
+        public JsonResult ContactMe(Contact form)
+        {
+            Console.WriteLine(form.ToString());
+            return Json(Ok());
         }
 
 
